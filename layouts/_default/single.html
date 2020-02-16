@@ -1,4 +1,14 @@
 {{ define "main" }}
+<script>
+    //No autoplay video in home page
+    document.addEventListener('DOMContentLoaded', function () {
+        var vids = document.getElementsByTagName('video')
+        for (var vid of vids) {
+            if (vid.hasAttribute('requestautoplay'))
+                vid.setAttribute('autoplay', true)
+        }
+    });
+</script>
 <h1 class="post-title">{{ .Title }}</h1>
 <time>{{ .Date.Format "January 2, 2006" }}</time>
 <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p class="reading-time">
