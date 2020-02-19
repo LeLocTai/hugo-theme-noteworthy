@@ -15,11 +15,8 @@
 {{ if .Draft}}
 <div style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</div>
 {{ end }}
-<br>
 <div>
-    <p>
-        {{ .Content }}
-    </p>
+    {{ .Content }}
 </div>
 {{ template "_internal/disqus.html" . }}
 
