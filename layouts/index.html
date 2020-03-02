@@ -14,25 +14,23 @@
                 {{ .Title }}
             </a>
         </h2>
-        <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p>
-        {{ if .Draft}}
-        <div style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</div>
-        {{ end }}
-
-        <div class="post-preview">
-            <p>{{ .Summary }}</p>
-        </div>
-        <div class="post-footer">
+        <div class="post-metadata">
             <time>{{ .Date.Format "January 2, 2006" }}</time>
 
-            <!-- Display tags -->
             {{if .Params.tags}}
             {{ range .Params.tags }}
             <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
             {{ end }}
             {{ end }}
+
+            <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words (likely over-estimated due to code)</p>
+
+            {{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
         </div>
 
+        <div class="post-preview">
+            {{ .Summary }}
+        </div>
     </article>
     {{ end }}
 </div>

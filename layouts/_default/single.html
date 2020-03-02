@@ -10,7 +10,7 @@
     });
 </script>
 <h1 class="post-title">{{ .Title }}</h1>
-<div class="metadata">
+<div class="post-metadata">
     <time>{{ .Date.Format "January 2, 2006" }}</time>
 
     {{if .Params.tags}}
@@ -23,6 +23,7 @@
 
     {{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
 </div>
+
 <div>
     {{ .Content }}
 </div>
