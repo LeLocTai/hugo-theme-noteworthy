@@ -16,18 +16,8 @@
     {{ template "_internal/twitter_cards.html" . }}
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <!-- Use Hugo Pipes to process the Sass file (convert to CSS, minify, and add a hash) -->
-    {{ $main_style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
+    {{ $main_style := resources.Get "css/main.scss" | toCSS | minify}}
     <link rel="stylesheet" href="{{ $main_style.Permalink }}" />
-
-    <!-- Uncomment to add custom styles -->
-    <!-- Modify the custom.scss file inside assets > css to use scss -->
-    <!-- {{ $custom_style := resources.Get "css/custom.scss" | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $custom_style.Permalink }}" /> -->
-
-    <!-- Modify the custom.css file inside static > css to use vanilla css -->
-    <!-- <link type="text/css" rel="stylesheet" href="{{ "/" | relURL }}css/custom.css"> -->
 
     {{ with .OutputFormats.Get "RSS" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
