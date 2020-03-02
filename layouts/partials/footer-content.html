@@ -1,0 +1,12 @@
+<div class="contact-info">
+	<a href="mailto:contact@leloctai.com">Email</a> | <a href="https://twitter.com/LeLocTai">Twitter</a>
+</div>
+
+<br />
+<div class="tech-info">
+	<p><a href="https://gohugo.io/" target="_blank">Built with Hugo</a></p>
+	<p><a href="https://github.com/LeLocTai/hugo-theme-noteworthy" target="_blank">Modified Noteworthy theme</a></p>
+</div>
+
+{{ $script := resources.Get "js/main.js" | minify | fingerprint -}}
+<script src="{{ $script.Permalink }}"></script>
