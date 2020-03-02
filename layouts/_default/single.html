@@ -18,13 +18,11 @@
     <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
     {{ end }}
     {{ end }}
-    {{ if .Draft}}
 
-    <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p class="reading-time">
+    <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words (likely over-estimated due to code)</p>
 
-    <div style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</div>
+    {{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
 </div>
-{{ end }}
 <div>
     {{ .Content }}
 </div>
