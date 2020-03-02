@@ -12,6 +12,11 @@
 <h1 class="post-title">{{ .Title }}</h1>
 <time>{{ .Date.Format "January 2, 2006" }}</time>
 <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p class="reading-time">
+{{if .Params.tags}}
+{{ range .Params.tags }}
+<a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
+{{ end }}
+{{ end }}
 {{ if .Draft}}
 <div style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</div>
 {{ end }}
@@ -21,11 +26,6 @@
 {{ template "_internal/disqus.html" . }}
 
 <div class="page-footer">
-    {{if .Params.tags}}
-    {{ range .Params.tags }}
-    <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
-    {{ end }}
-    {{ end }}
     <hr>
     {{ with .PrevInSection }}
     <a href="{{ .Permalink }}" class="prev-link">&lt; {{ .Title }}</a>
