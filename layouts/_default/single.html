@@ -10,15 +10,20 @@
     });
 </script>
 <h1 class="post-title">{{ .Title }}</h1>
-<time>{{ .Date.Format "January 2, 2006" }}</time>
-<p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p class="reading-time">
-{{if .Params.tags}}
-{{ range .Params.tags }}
-<a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
-{{ end }}
-{{ end }}
-{{ if .Draft}}
-<div style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</div>
+<div class="metadata">
+    <time>{{ .Date.Format "January 2, 2006" }}</time>
+
+    {{if .Params.tags}}
+    {{ range .Params.tags }}
+    <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
+    {{ end }}
+    {{ end }}
+    {{ if .Draft}}
+
+    <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p class="reading-time">
+
+    <div style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</div>
+</div>
 {{ end }}
 <div>
     {{ .Content }}
