@@ -20,9 +20,12 @@
 	{{ end }}
 
 	<p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words <small>(likely over-estimated due to code)</small></p>
-
-	{{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
 </div>
+
+{{ if .Draft}}
+<br />
+<p style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</p>
+{{ end }}
 
 <div>
 	{{ .Content }}

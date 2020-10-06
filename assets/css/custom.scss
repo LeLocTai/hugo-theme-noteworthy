@@ -210,11 +210,25 @@ h3 {
 }
 
 .post-metadata {
+	margin-bottom: 1em;
+
 	p {
 		margin: 0;
 	}
 
-	margin-bottom: 1em;
+	time {
+		margin-right: .5em;
+	}
+
+	.tag {
+		margin-right: .2em;
+	}
+
+	.reading-time {
+		// display: ;
+		float: right;
+		clear: both;
+	}
 }
 
 table thead {

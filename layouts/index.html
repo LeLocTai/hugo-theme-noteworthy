@@ -24,10 +24,9 @@
 			{{ end }}
 
 			<p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words</p>
-
-			{{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
 		</div>
 
+		{{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
 		<div class="post-preview">
 			{{ .Summary }}
 			<a href="{{ .Permalink }}" class="post-read-more-link"></a>
