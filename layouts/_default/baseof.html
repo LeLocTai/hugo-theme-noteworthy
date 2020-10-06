@@ -4,13 +4,20 @@
 {{ partial "head.html" . }}
 
 <body>
-    {{ partial "nav.html" . }}
-    <div id="content" class="content-container">
-        {{ block "main" . }}
-        {{ end }}
-        {{ partial "math.html" . }}
-    </div>
-    {{ partial "footer-mobile.html" . }}
+	{{ partial "nav.html" . }}
+	<div id="content" class="content-container">
+		{{ block "main" . }}
+		{{ end }}
+		{{ partial "math.html" . }}
+	</div>
+	{{ partial "footer-mobile.html" . }}
+
+	<!--
+	{{ $lightbox := resources.Get "js/medium-lightbox.js" | minify | fingerprint -}}
+	<script src="{{ $lightbox.Permalink }}"></script> -->
+
+	{{ $main := resources.Get "js/main.js" | minify | fingerprint -}}
+	<script src="{{ $main.Permalink }}"></script>
 </body>
 
 </html>

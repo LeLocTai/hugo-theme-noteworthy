@@ -1,54 +1,54 @@
 {{ define "main" }}
 <script>
-    //No autoplay video in home page
-    document.addEventListener('DOMContentLoaded', function () {
-        var vids = document.getElementsByTagName('video')
-        for (var vid of vids) {
-            if (vid.hasAttribute('requestautoplay'))
-                vid.setAttribute('autoplay', true)
-        }
-    });
+	//No autoplay video in home page
+	document.addEventListener('DOMContentLoaded', function () {
+		var vids = document.getElementsByTagName('video')
+		for (var vid of vids) {
+			if (vid.hasAttribute('requestautoplay'))
+				vid.setAttribute('autoplay', true)
+		}
+	});
 </script>
 <h1 class="post-title">{{ .Title }}</h1>
 <div class="post-metadata">
-    <time>{{ .Date.Format "January 2, 2006" }}</time>
+	<time>{{ .Date.Format "January 2, 2006" }}</time>
 
-    {{if .Params.tags}}
-    {{ range .Params.tags }}
-    <a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
-    {{ end }}
-    {{ end }}
+	{{if .Params.tags}}
+	{{ range .Params.tags }}
+	<a class="tag" href="/tags/{{ . | urlize }}">#{{.}}</a>
+	{{ end }}
+	{{ end }}
 
-    <p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words (likely over-estimated due to code)</p>
+	<p class="reading-time">~{{.ReadingTime}} minutes read | {{.FuzzyWordCount}} words <small>(likely over-estimated due to code)</small></p>
 
-    {{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
+	{{ if .Draft}}<span style="color:orange">🚧🚧🚧 DRAFT 🚧🚧🚧</span>{{ end }}
 </div>
 
 <div>
-    {{ .Content }}
+	{{ .Content }}
 </div>
 {{ template "_internal/disqus.html" . }}
 
 <div class="page-footer">
-    <hr>
-    {{ with .PrevInSection }}
-    <a href="{{ .Permalink }}" class="prev-link">&lt; {{ .Title }}</a>
-    {{ end }}
-    {{ with .NextInSection }}
-    <a href="{{ .Permalink }}" class="next-link">{{ .Title }} &gt;</a>
-    {{ end }}
+	<hr>
+	{{ with .PrevInSection }}
+	<a href="{{ .Permalink }}" class="prev-link">&lt; {{ .Title }}</a>
+	{{ end }}
+	{{ with .NextInSection }}
+	<a href="{{ .Permalink }}" class="next-link">{{ .Title }} &gt;</a>
+	{{ end }}
 </div>
 
 <div class="wide-hiden">
-    {{ $related := .Site.RegularPages.Related . | first 5 }}
-    {{ with $related }}
-    <h3>See Also</h3>
-    <ul>
-        {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-    </ul>
-    {{ end }}
+	{{ $related := .Site.RegularPages.Related . | first 5 }}
+	{{ with $related }}
+	<h3>See Also</h3>
+	<ul>
+		{{ range . }}
+		<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+		{{ end }}
+	</ul>
+	{{ end }}
 </div>
 
 {{end}}
