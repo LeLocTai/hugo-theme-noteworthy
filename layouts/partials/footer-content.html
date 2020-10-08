@@ -1,5 +1,7 @@
 <div class="contact-info">
-	<a href="mailto:contact@leloctai.com">Email</a> | <a href="https://www.reddit.com/user/leloctai/posts/?sort=top">Reddit</a> | <a href="https://twitter.com/LeLocTai">Twitter</a>
+	{{with $.Site.Params.email}}<a rel="noopener" target="_blank" href="{{- . -}}">Email</a>{{end}}
+	{{with $.Site.Params.reddit}} | <a rel="noopener" target="_blank" href="{{- . -}}">Reddit</a>{{end}}
+	{{with $.Site.Params.twitter}} | <a rel="noopener" target="_blank" href="{{- . -}}">Twitter</a>{{end}}
 </div>
 <div class="tech-info">
 	<p><a href="https://gohugo.io/" target="_blank" rel="noopener">Built with Hugo</a></p>
